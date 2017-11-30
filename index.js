@@ -11,19 +11,25 @@ function getDataFromApi(searchTerm, callback) {
 }
 
 
-//handle resulting data
+
 function handleResults (data){
     //const data.items
+    console.log(data);
     const results = data.items.map((value, index) => showResults(value));
     $('.search-results').html(results);
 }
 
-//render data on the page in html
+/*function handlePageToggle (data){
+    const nextPage = data.item.nextPageToken
+    console.log() 
+}
+*/
+
+
 function showResults (data){
     console.log(data);
     return `<li>
-            <a href="#video" class="result-item"><img src="${data.snippet.thumbnails.default.url}"></a>
-            <a href="#_" class="lightbox" id="video"><img src="https://www.youtube.com/watch?v=${data.id.videoId}"></a>
+            <a href="https://www.youtube.com/watch?v=${data.id.videoId}"class="result-item"><img src="${data.snippet.thumbnails.default.url}"></a>
             </li>`
 }
 
